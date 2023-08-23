@@ -32,6 +32,8 @@ import ${packageName}.${moduleName}.modular.${busName}.param.${className}EditPar
 import ${packageName}.${moduleName}.modular.${busName}.param.${className}IdParam;
 import ${packageName}.${moduleName}.modular.${busName}.param.${className}PageParam;
 import ${packageName}.${moduleName}.modular.${busName}.service.${className}Service;
+import ${packageName}.${moduleName}.modular.${busName}.struct.${className}Struct;
+import ${packageName}.${moduleName}.modular.${busName}.vo.${className}VO;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -62,8 +64,8 @@ public class ${className}Controller {
     @ApiOperation("获取${functionName}分页")
     @SaCheckPermission("/${moduleName}/${busName}/page")
     @GetMapping("/${moduleName}/${busName}/page")
-    public CommonResult<Page<${className}>> page(${className}PageParam ${classNameFirstLower}PageParam) {
-        return CommonResult.data(${classNameFirstLower}Service.page(${classNameFirstLower}PageParam));
+    public CommonResult<Page<${className}VO>> page(${className}PageParam ${classNameFirstLower}PageParam) {
+        return CommonResult.data(${classNameFirstLower}Service.page(${classNameFirstLower}PageParam).convert(${className}Struct.INSTANCE::toVo));
     }
 
     /**
@@ -125,7 +127,7 @@ public class ${className}Controller {
     @ApiOperation("获取${functionName}详情")
     @SaCheckPermission("/${moduleName}/${busName}/detail")
     @GetMapping("/${moduleName}/${busName}/detail")
-    public CommonResult<${className}> detail(@Valid ${className}IdParam ${classNameFirstLower}IdParam) {
-        return CommonResult.data(${classNameFirstLower}Service.detail(${classNameFirstLower}IdParam));
+    public CommonResult<${className}VO> detail(@Valid ${className}IdParam ${classNameFirstLower}IdParam) {
+        return CommonResult.data(${className}Struct.INSTANCE.toVo(${classNameFirstLower}Service.detail(${classNameFirstLower}IdParam)));
     }
 }

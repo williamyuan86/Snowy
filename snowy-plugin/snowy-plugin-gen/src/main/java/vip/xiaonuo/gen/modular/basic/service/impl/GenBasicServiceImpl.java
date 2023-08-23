@@ -120,6 +120,8 @@ public class GenBasicServiceImpl extends ServiceImpl<GenBasicMapper, GenBasic> i
             JSONUtil.createObj().set("name", "EditParam.java.btl").set("path", "param"),
             JSONUtil.createObj().set("name", "IdParam.java.btl").set("path", "param"),
             JSONUtil.createObj().set("name", "PageParam.java.btl").set("path", "param"),
+            JSONUtil.createObj().set("name", "Struct.java.btl").set("path", "struct"),
+            JSONUtil.createObj().set("name", "VO.java.btl").set("path", "vo"),
             JSONUtil.createObj().set("name", "Service.java.btl").set("path", "service"),
             JSONUtil.createObj().set("name", "ServiceImpl.java.btl").set("path", "service" + File.separator + "impl"));
 
